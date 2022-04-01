@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -43,6 +48,27 @@ public class MainActivity extends AppCompatActivity {
         );
 
         citiesAdapter = new CitiesAdapter(citiesList);
+        citiesAdapter.setOnCityClickListener(new MyOnCityClickListener());
+
         recyclerCities.setAdapter(citiesAdapter);
+    }
+
+    class MyOnCityClickListener implements CitiesAdapter.OnCityClickListener {
+
+        @Override
+        public void onCityImageClick(ImageView imageView, City city, int position) {
+            Toast.makeText(MainActivity.this, "Image: " + city.getName(), Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onCityNameClick(TextView txtCity, City city, int position) {
+
+            txtCity.setTextColor(Color.RED);
+            Toast.makeText(MainActivity.this, "TextView: " + city.getName(), Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(MainActivity.this, CityDetailsActivity.class);
+            intent.putExtra(City.KEY_CITY, city);
+            startActivity(intent);
+        }
     }
 }

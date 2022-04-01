@@ -25,6 +25,17 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
         this.citiesList = citiesList;
     }
 
+    public interface OnCityClickListener {
+        void onCityImageClick(ImageView imageView, City city, int position);
+        void onCityNameClick(TextView txtCity, City city, int position);
+    }
+
+    private OnCityClickListener onCityClickListener;
+
+    public void setOnCityClickListener(OnCityClickListener onCityClickListener) {
+        this.onCityClickListener = onCityClickListener;
+    }
+
     class CityViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imgCity;
@@ -41,18 +52,36 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
             imgCity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(
+
+                    if(onCityClickListener != null) {
+                        onCityClickListener.onCityImageClick(
+                                imgCity,
+                                citiesList.get(getAdapterPosition()),
+                                getAdapterPosition()
+                        );
+                    }
+
+                    /*Toast.makeText(
                             view.getContext(),
                             "Image: " + citiesList.get(getAdapterPosition()).getName(),
                             Toast.LENGTH_SHORT
-                    ).show();
+                    ).show();*/
                 }
             });
 
             txtCityName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(
+
+                    if(onCityClickListener != null) {
+                        onCityClickListener.onCityNameClick(
+                                txtCityName,
+                                citiesList.get(getAdapterPosition()),
+                                getAdapterPosition()
+                        );
+                    }
+
+                    /*Toast.makeText(
                             view.getContext(),
                             "TxtCityName: " + citiesList.get(getAdapterPosition()).getName(),
                             Toast.LENGTH_SHORT
@@ -60,7 +89,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
 
                     Intent intent = new Intent(view.getContext(), CityDetailsActivity.class);
                     intent.putExtra(City.KEY_CITY, citiesList.get(getAdapterPosition()));
-                    view.getContext().startActivity(intent);
+                    view.getContext().startActivity(intent);*/
                 }
             });
 
