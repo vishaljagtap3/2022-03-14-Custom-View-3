@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -52,10 +53,16 @@ public class MainActivity extends AppCompatActivity {
         /*recyclerCities.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         );*/
-        recyclerCities.setLayoutManager(
+        /*recyclerCities.setLayoutManager(
                 new GridLayoutManager(
                         this,
                         3
+                )
+        );*/
+        recyclerCities.setLayoutManager(
+                new StaggeredGridLayoutManager(
+                        3,
+                        StaggeredGridLayoutManager.VERTICAL
                 )
         );
 
