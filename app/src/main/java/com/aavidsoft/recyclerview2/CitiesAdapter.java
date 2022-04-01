@@ -58,7 +58,9 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
                             Toast.LENGTH_SHORT
                     ).show();
 
-
+                    Intent intent = new Intent(view.getContext(), CityDetailsActivity.class);
+                    intent.putExtra(City.KEY_CITY, citiesList.get(getAdapterPosition()));
+                    view.getContext().startActivity(intent);
                 }
             });
 

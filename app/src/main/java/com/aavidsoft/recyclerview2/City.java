@@ -1,11 +1,15 @@
 package com.aavidsoft.recyclerview2;
 
-public class City {
+import java.io.Serializable;
+
+public class City implements Serializable {
     private int imageId;
     private String name;
     private String state;
     private long population;
     double lat, lng;
+
+    public static final String KEY_CITY = "city";
 
     public City(int imageId, String name, String state, long population, double lat, double lng) {
         this.imageId = imageId;
