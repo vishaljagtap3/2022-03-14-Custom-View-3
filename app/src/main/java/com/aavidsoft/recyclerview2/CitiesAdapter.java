@@ -2,6 +2,7 @@ package com.aavidsoft.recyclerview2;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHolder> {
 
@@ -41,6 +43,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
         public ImageView imgCity;
         public TextView txtCityName;
         public TextView txtState;
+        public TextView txtDescription;
 
         public CityViewHolder(View itemView) {
             super(itemView);
@@ -48,6 +51,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
             imgCity = itemView.findViewById(R.id.imgCity);
             txtCityName = itemView.findViewById(R.id.txtCityName);
             txtState = itemView.findViewById(R.id.txtState);
+            txtDescription = itemView.findViewById(R.id.txtDescription);
 
             imgCity.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -143,11 +147,23 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CityViewHo
 
     @Override
     public void onBindViewHolder(@NonNull CityViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        Random random = new Random();
+
+        holder.itemView.setBackgroundColor(
+                Color.rgb(
+                        Math.abs(random.nextInt()) % 256,
+                        Math.abs(random.nextInt()) % 256,
+                        Math.abs(random.nextInt()) % 256
+                )
+        );
+
         City city = citiesList.get(position);
 
         holder.imgCity.setImageResource(city.getImageId());
         holder.txtCityName.setText(city.getName());
         holder.txtState.setText(city.getState());
+        holder.txtDescription.setText(city.getDescription());
 
         //not a good way to setup listeners to the views inside onBind
         /*holder.itemView.setOnClickListener(new View.OnClickListener() {

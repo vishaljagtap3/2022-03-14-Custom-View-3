@@ -8,16 +8,26 @@ public class City implements Serializable {
     private String state;
     private long population;
     double lat, lng;
+    private String description;
 
     public static final String KEY_CITY = "city";
 
-    public City(int imageId, String name, String state, long population, double lat, double lng) {
+    public City(int imageId, String name, String state, long population, double lat, double lng, String description) {
         this.imageId = imageId;
         this.name = name;
         this.state = state;
         this.population = population;
         this.lat = lat;
         this.lng = lng;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getImageId() {

@@ -30,18 +30,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         citiesList = new ArrayList<>();
-        citiesList.add(new City(R.mipmap.ic_launcher, "Pune", "Mahrashtra", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Mumbai", "Mahrashtra", 3100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Delhi", "Delhi", 2103000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Chennai", "Tamilnadu", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Jaipur", "Rajasthan", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Kolkata", "West Bengal", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Hyderabad", "Telangana", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Yavatmal", "Mahrashtra", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Nagpur", "Mahrashtra", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Nashik", "Mahrashtra", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Aurangabad", "Mahrashtra", 2100000, 18.50234, 72.39834));
-        citiesList.add(new City(R.mipmap.ic_launcher, "Bengaluru", "Karnataka", 2100000, 18.50234, 72.39834));
+        citiesList.add(
+                new City(
+                        R.mipmap.ic_launcher, "Pune", "Mahrashtra", 2100000, 18.50234, 72.39834,
+                        "Pune is Amazing... Smart People Festivals, Culture IT"
+                )
+        );
+        citiesList.add(new City(R.mipmap.ic_launcher, "Mumbai", "Mahrashtra", 3100000, 18.50234, 72.39834, "Economical capital of India, Corporate, Bollywood, Sea, Humidity, Rush, FAst, Safe"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Delhi", "Delhi", 2103000, 18.50234, 72.39834, "Capital of India, Foody"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Chennai", "Tamilnadu", 2100000, 18.50234, 72.39834, "Capital of Tamilnadu, Nice CIty, bad weather"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Jaipur", "Rajasthan", 2100000, 18.50234, 72.39834, "Good things here.. good people.. bad infra"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Kolkata", "West Bengal", 2100000, 18.50234, 72.39834, "Fish city"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Hyderabad", "Telangana", 2100000, 18.50234, 72.39834, "This is sample description of the city"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Yavatmal", "Mahrashtra", 2100000, 18.50234, 72.39834, "This is sample"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Nagpur", "Mahrashtra", 2100000, 18.50234, 72.39834, "This is sample description of the city"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Nashik", "Mahrashtra", 2100000, 18.50234, 72.39834, "This is sample description of the city"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Aurangabad", "Mahrashtra", 2100000, 18.50234, 72.39834, "This is sample description of the city"));
+        citiesList.add(new City(R.mipmap.ic_launcher, "Bengaluru", "Karnataka", 2100000, 18.50234, 72.39834, "This is sample description of the city"));
 
         recyclerCities = findViewById(R.id.recyclerCities);
         /*recyclerCities.setLayoutManager(
