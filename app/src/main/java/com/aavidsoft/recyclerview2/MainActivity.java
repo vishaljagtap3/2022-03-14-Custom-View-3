@@ -1,6 +1,7 @@
 package com.aavidsoft.recyclerview2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,8 +44,14 @@ public class MainActivity extends AppCompatActivity {
         citiesList.add(new City(R.mipmap.ic_launcher, "Bengaluru", "Karnataka", 2100000, 18.50234, 72.39834));
 
         recyclerCities = findViewById(R.id.recyclerCities);
-        recyclerCities.setLayoutManager(
+        /*recyclerCities.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        );*/
+        recyclerCities.setLayoutManager(
+                new GridLayoutManager(
+                        this,
+                        3
+                )
         );
 
         citiesAdapter = new CitiesAdapter(citiesList);
