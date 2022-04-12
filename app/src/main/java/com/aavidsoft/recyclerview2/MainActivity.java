@@ -50,21 +50,10 @@ public class MainActivity extends AppCompatActivity {
         citiesList.add(new City(R.mipmap.ic_launcher, "Bengaluru", "Karnataka", 2100000, 18.50234, 72.39834, "This is sample description of the city"));
 
         recyclerCities = findViewById(R.id.recyclerCities);
-        /*recyclerCities.setLayoutManager(
-                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        );*/
-        /*recyclerCities.setLayoutManager(
-                new GridLayoutManager(
-                        this,
-                        3
-                )
-        );*/
         recyclerCities.setLayoutManager(
-                new StaggeredGridLayoutManager(
-                        3,
-                        StaggeredGridLayoutManager.VERTICAL
-                )
+                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         );
+
 
         citiesAdapter = new CitiesAdapter(citiesList);
         citiesAdapter.setOnCityClickListener(new MyOnCityClickListener());
